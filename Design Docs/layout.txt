@@ -1,0 +1,51 @@
+
+
++----------------+--------------+----------+-------------+
+|                |  Activities  | Contacts | Top Detail  |
++----------------+--------------+----------+-------------+
+| TopRecords     |           Detail Info                 |
++----------------+---------------------------------------+
+
+
+MT Page
+Grid
+  + Row
+    + Column 
+      + Top
+    + Column 
+       + Detail
+       + TabSet
+          + Tab1/View 1
+          + Tab2/View 2
+
+
+Carbon Components:
+ Grid
+ Structured List
+ DatePicker
+ DropDown
+ Tabs
+ TextInput
+ TextArea
+
+   
+
+
+Data Follow 
+  Application Global State:
+     recordset - updates with { record_type, id, new_record}
+
+ Record Field Component data:
+    + my_record_type
+    + my_record_id
+    + my_record_field
+    + my_db_value 
+    + my_new_value
+    + local_state_pointer
+    + emit changed values 'record context data' for parent to handle
+
+  
+    
+ 
+Record List 
+
