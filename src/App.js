@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { Grid, Row, Column, DatePicker, DatePickerInput } from 'carbon-components-react';
+
+import {TopRecords} from './components/TopRecords.js'
+import {DetailRecords} from './components/DetailRecords.js'
+import SListInput from './components/SListInput';
+
 function App() {
+  const handleDateChange = (e) => {console.log("HandleDateChange!"); console.dir(e)}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{display:"none"}} id="date_menu_div">
+        <DatePicker onChange={(e) => handleDateChange(e)}
+                       datePickerType="single" >
+  <DatePickerInput
+    placeholder="dd/mm/yyyy"
+    id="date-picker-8"
+    labelText="minDate example"
+    
+  />
+</DatePicker></div>
+      <SListInput />
     </div>
   );
 }
