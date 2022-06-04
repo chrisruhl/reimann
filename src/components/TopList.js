@@ -7,7 +7,7 @@ import {
     TableBody,
     TableCell,
     
-  } from 'carbon-components-react';
+  } from '@carbon/react';
 
 export const DefaultLg = () => {
      const rows = [

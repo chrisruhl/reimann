@@ -1,6 +1,6 @@
 import './App.css';
 
-import { Grid, Row, Column, DatePicker, DatePickerInput } from 'carbon-components-react';
+import { Grid, Row, Column, DatePicker, DatePickerInput } from '@carbon/react';
 
 import {TopRecords} from './components/TopRecords.js'
 import {DetailRecords} from './components/DetailRecords.js'

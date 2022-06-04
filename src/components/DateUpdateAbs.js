@@ -1,4 +1,4 @@
-import {Button, DatePicker, DatePickerInput} from 'carbon-components-react';
+import {Button, DatePicker, DatePickerInput} from '@carbon/react';
 import { Add16 } from '@carbon/icons-react';
 
 

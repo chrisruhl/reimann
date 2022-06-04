@@ -1,4 +1,4 @@
-import {DatePicker, DatePickerInput} from 'carbon-components-react';
+import {DatePicker, DatePickerInput} from '@carbon/react';
 
 function DateUpdate(props){
    return (

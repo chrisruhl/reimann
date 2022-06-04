@@ -1,4 +1,4 @@
-import { DatePicker, DatePickerInput, StructuredListWrapper, StructuredListHead, StructuredListRow, StructuredListCell, StructuredListBody } from 'carbon-components-react';
+import { DatePicker, DatePickerInput, StructuredListWrapper, StructuredListHead, StructuredListRow, StructuredListCell, StructuredListBody } from '@carbon/react';
 
 
 function SListInput() {

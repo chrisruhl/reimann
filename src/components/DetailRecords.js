@@ -7,7 +7,7 @@ import {
     TableBody,
     TableCell,
     TableContainer
-  } from 'carbon-components-react';
+  } from '@carbon/react';
 
   import allData  from '../data/devData.json'
 import { DateUpdate } from './DateUpdate';
