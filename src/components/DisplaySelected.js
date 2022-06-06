@@ -13,9 +13,9 @@ function DisplaySelected() {
     }
   if(custList.selected >= 0){
   return (
-  <div className={'Customer-Info'} ><h4>
-   <strong>{getSelectedName(custList)}</strong> - Last Check-in: <strong>05/09/2022</strong> - Next Check-in: <strong>06/09/2022</strong>
-  </h4></div>
+  <div className={'Customer-Info'} >
+   <strong>{getSelectedName(custList)}</strong> Next Check-in: <strong>06/09/2022</strong>
+  </div>
   )}else{
     return (<div></div>)
   }

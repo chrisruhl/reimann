@@ -7,7 +7,6 @@ import DetailPanels from './DetailPanels'
 function MasterDetailPane(){
     return(
         <div>
-        <Grid><Column lg={12}><DisplaySelected /></Column></Grid><hr />
         <Grid>
           <Column lg={3}>
             <CustomerStructuredList />
