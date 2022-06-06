@@ -1,19 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import {Switcher, Search, Notification} from '@carbon/icons-react'
-import {Content, HeaderContainer,
+import {Content,
 Header,
-SkipToContent,
-HeaderMenuButton,
 HeaderName,
-HeaderMenu,
-HeaderMenuItem,
-HeaderNavigation,
-SideNavItems,
-HeaderSideNavItems,
 HeaderGlobalAction,
 HeaderGlobalBar,
-SideNav} from '@carbon/react'
+} from '@carbon/react'
 
 import Index from './components/Index'
 import CustomerList from './components/CustomerList'

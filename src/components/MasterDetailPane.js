@@ -1,6 +1,5 @@
 
 import {Grid, Column} from '@carbon/react'
-import DisplaySelected from './DisplaySelected'
 import CustomerStructuredList from './CustomerStructuredList'
 import DetailPanels from './DetailPanels'
 

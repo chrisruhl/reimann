@@ -7,8 +7,7 @@ import TaskList from './TaskList'
 function CustomerList(props) {
 
   let {custList, } = useContext(CustomerContext)
-  console.log("CustomerList.js: customers from useContext()")
-  console.dir(custList)
+
   const getSelectedName = (custList) => {
     let m = custList.selected >= 0 ? custList.theList[custList.selected]['customer_name'] : 'None';
         return(<span>{m}</span>)

@@ -12,9 +12,6 @@ const useCustomerState = () => {
    const [contactList, setContacts] = useState(initialContacts);
    const getSelectedCustomer = () => {return custList.selected;}
 
-   console.log("useCustomerState.js: ")
-   console.dir("customers")
-   console.dir(custList)   
    return {custList, setCustomers, taskList, setTasks, contactList, setContacts, getSelectedCustomer}
 }
 

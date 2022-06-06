@@ -1,4 +1,6 @@
 import {useContext} from 'react'
+import './CustomerStructuredList.scss'
+
 import {CustomerContext} from '../context/customers.context';
 
 import {StructuredListWrapper, 
@@ -10,20 +12,21 @@ import {StructuredListWrapper,
 function CustomerStructuredList(){ 
     let {custList, setCustomers} = useContext(CustomerContext);
     const setSelectedIndex = (custList, newIndex) => {
-      console.log("CustomerStructuredList.js: setting selected customer to: ", newIndex)
-      console.log("CustomerStructuredList.js: before update ")
-      console.dir(custList)
-    
 
-    console.log("CustomerStructuredList.js: after update ")
     let n = {selected: newIndex, theList: custList.theList}
     
     setCustomers(n)
     return true
   }
+    const getColorClass = (customerIndex) => {
+      const myRec = custList.theList.find( e => e.id === customerIndex)
+      if(myRec.customer_name === 'Bubblebox') return 'task-priority-one' 
+      if(myRec.customer_name === 'Meemm') return 'task-priority-two'
+      return ''
+    }
     const writeRow = (value, index) => {
       return(
-    <StructuredListRow key={index}>
+    <StructuredListRow className={getColorClass(index)} key={index}>
        <StructuredListCell onClick={() => setSelectedIndex(custList, index)} noWrap>{value.customer_name}</StructuredListCell>
      </StructuredListRow>
       )

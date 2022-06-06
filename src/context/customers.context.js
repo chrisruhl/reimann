@@ -5,8 +5,7 @@ export const CustomerContext = createContext();
 
 export function CustomerProvider(props) {
   const c = useCustomerState();
-  console.log("customers.context.js: ")
-  console.dir("customers")
+
   return (
     <CustomerContext.Provider value={c}>
       {props.children}

@@ -13,15 +13,13 @@ import {CustomerContext} from '../context/customers.context'
 function TaskList() {
 
   let {taskList, getSelectedCustomer} = useContext(CustomerContext)
-  console.log("TaskList.js: tasks from useContaxt()")
+
   let myTaskList 
   const myCustomerID = getSelectedCustomer()
   if( myCustomerID >= 0){
     myTaskList = taskList.filter(value => value.customer_id === myCustomerID)
   }
-  console.dir(myTaskList)
-
-
+  
   const writeTaskRow = (theTask, index) => {
     if(myTaskList)
     return(
