@@ -17,7 +17,7 @@ const dataSet = {
             "record_type": "customer_headers"
         }
     ],
-    "customers": {selected: -1, theList: [
+    "customers": [
         {
             "id": 0,
             "customer_name": "Stovepipe",
@@ -144,7 +144,7 @@ const dataSet = {
             "record_type": "customer",
             "table_set": "customers"
         }
-    ]},
+    ],
     "systems_headers": [
         {
             "id": 1,
