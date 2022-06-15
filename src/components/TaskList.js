@@ -12,46 +12,44 @@ import {CustomerContext} from '../context/customers.context'
 
 function TaskList() {
 
-  let {taskList, getSelectedCustomer} = useContext(CustomerContext)
-
-  let myTaskList 
-  const myCustomerID = getSelectedCustomer()
-  if( myCustomerID >= 0){
-    myTaskList = taskList.filter(value => value.customer_id === myCustomerID)
-  }
   
+  let myTaskList = []
+  let myCustomerID = []
+  let {tasks, selectedCustomers} = useContext(CustomerContext)
+
+  console.log("TaskList.js: TaskList(): getting started with " + selectedCustomers.length + " selected customers")
+  if(selectedCustomers.length > 0){
+    myCustomerID = selectedCustomers[0].id
+    myTaskList = tasks.filter(value => value.customer_id === myCustomerID)
+  }
+
+  // Write One Row ( called in map function below)
   const writeTaskRow = (theTask, index) => {
     if(myTaskList)
     return(
-
-            <StructuredListRow key={index}>
-              <StructuredListCell noWrap>{theTask.task_name}</StructuredListCell>
-              <StructuredListCell noWrap>{theTask.type}</StructuredListCell>
-              <StructuredListCell noWrap>{theTask.progress}</StructuredListCell>
-            </StructuredListRow>
+      <StructuredListRow key={index}>
+        <StructuredListCell noWrap>{theTask.task_name}</StructuredListCell>
+        <StructuredListCell noWrap>{theTask.type}</StructuredListCell>
+        <StructuredListCell noWrap>{theTask.progress}</StructuredListCell>
+      </StructuredListRow>
      )
-    }
-  if(getSelectedCustomer() >= 0)
-  return (
-  <div>
-     
+  }
 
+  // This gets returned every time - structured list Wrapper + body
+  return (
         <StructuredListWrapper isCondensed={true} selection>
-          <StructuredListHead>
-            <StructuredListRow head>
-              <StructuredListCell head>Name</StructuredListCell>
-              <StructuredListCell head>Type</StructuredListCell>
-              <StructuredListCell head>Progress</StructuredListCell>
-            </StructuredListRow>
-          </StructuredListHead>
+        <StructuredListHead>
+          <StructuredListRow head>
+            <StructuredListCell head>Name</StructuredListCell>
+            <StructuredListCell head>Type</StructuredListCell>
+            <StructuredListCell head>Progress</StructuredListCell>
+          </StructuredListRow>
+        </StructuredListHead>
+        <StructuredListBody>
           {myTaskList.map((value, index) => writeTaskRow(value, index))}
-          <StructuredListBody>
-          </StructuredListBody>
-          
-       </StructuredListWrapper>
-  </div>
+        </StructuredListBody>          
+      </StructuredListWrapper>
   )
-  else
-    return(<div>Selected Customer: {getSelectedCustomer()}</div>)
+  
 }
 export default TaskList; 

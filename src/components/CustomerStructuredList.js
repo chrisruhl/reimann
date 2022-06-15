@@ -10,21 +10,21 @@ import {StructuredListWrapper,
         StructuredListBody} from "@carbon/react";
 
 function CustomerStructuredList(){ 
-    let {custList, setCustomers, } = useContext(CustomerContext);
+    let {customers, setSelectedCustomers } = useContext(CustomerContext);
 
-
-    const setSelectedIndex = (custList, newIndex) => {
-
-    let n = {selected: newIndex, theList: custList.theList}
-    
-    setCustomers(n)
-    return true
+    const setSelected = (selectedIndex) => {
+      console.log("CustomerStructuredList.js: setSelected() - setting index", selectedIndex)
+      let s = []
+      s[0] = customers.find((c) => c.id === selectedIndex)
+      console.log("CustomerStructuredList.js: setSelected() - setting record:")
+      console.dir(s)
+      setSelectedCustomers(s)
   }
 
     const writeRow = (value, index) => {
       return(
     <StructuredListRow className={value.color_class} key={index}>
-       <StructuredListCell onClick={() => setSelectedIndex(custList, index)} noWrap>{value.customer_name}</StructuredListCell>
+       <StructuredListCell onClick={() => setSelected(value.id)} noWrap>{value.customer_name}</StructuredListCell>
      </StructuredListRow>
       )
     }
@@ -36,7 +36,7 @@ function CustomerStructuredList(){
     </StructuredListRow>
   </StructuredListHead>
    <StructuredListBody>
-     {custList.theList.map((value, index) => {return writeRow(value, index)})}
+     {customers.map((value, index) => {return writeRow(value, index)})}
    </StructuredListBody>
  </StructuredListWrapper>
 )}

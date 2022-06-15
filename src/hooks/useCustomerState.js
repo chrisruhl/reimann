@@ -1,10 +1,7 @@
 import {useState} from "react";
 import {dataSet} from "../data/dataSet"
 
-
-// const initialCustomers = {selected: null, theList: [{id:0, name: 'c0'},{id:1, name:'c1'}]}
-let customers           = dataSet['customers'];
-let initialCustomers    = {selected: -1, theList: customers}
+const initialCustomers    = dataSet['customers'];
 const initialTasks        = dataSet['tasks']
 const initialContacts     = dataSet['contacts']
 
@@ -28,28 +25,41 @@ const getColorClass = (priority) => {
     }
 var today = new Date(Date.now()) 
 initialTasks.forEach( (c,i) => {c.target_date = addDays(today, getRandomArbitrary(-30,60))})
-for( let i = 0; i < initialCustomers.theList.length; i++){
+for( let i = 0; i < initialCustomers.length; i++){
   let myPriority = getRandomPriority();
-  initialCustomers.theList[i]['priority'] = myPriority;
-  initialCustomers.theList[i]['color_class'] = getColorClass(myPriority)
-  //initialCustomers.theList[i]['customer_name'] = initialCustomers.theList[i]['customer_name'] + " - " + myPriority + " - " + getColorClass(myPriority)
-  console.log(initialCustomers.theList[i]['customer_name'])
+  initialCustomers[i]['priority'] = myPriority;
+  initialCustomers[i]['color_class'] = getColorClass(myPriority)
+
 } 
-initialCustomers.theList.sort((a,b) => b.priority - a.priority || a.customer_name.localeCompare(b.customer_name))
+initialCustomers.sort((a,b) => b.priority - a.priority || a.customer_name.localeCompare(b.customer_name))
 console.log("Customers Sorted!")
-for( let i = 0; i < initialCustomers.theList.length; i++){
-  console.log(initialCustomers.theList[i]['customer_name'])
+const noop = () => {};  
+for( let i = 0; i < initialCustomers.length; i++){
+  noop()
 } 
 console.log("Customers Initialized")
-console.dir(initialCustomers.theList)
+console.dir(initialCustomers)
 
 const useCustomerState = () => {
-   const [custList, setCustomers] = useState(initialCustomers);
-   const [taskList, setTasks] = useState(initialTasks);
-   const [contactList, setContacts] = useState(initialContacts);
-   const getSelectedCustomer = () => {return custList.selected;}
+   const [customers, setCustomers] = useState(initialCustomers);
+   const [selectedCustomers, setSelectedCustomers] = useState([])
+   
+   const [tasks, setTasks] = useState(initialTasks);
+   const [selectedTasks, setSelectedTasks] = useState([]);
+   
+   const [contacts, setContacts] = useState(initialContacts);
+   const [selecteContacts, setSelectedContacts] = useState([]);
 
-   return {custList, setCustomers, taskList, setTasks, contactList, setContacts, getSelectedCustomer}
+   return {
+     customers, setCustomers,
+     selectedCustomers, setSelectedCustomers,
+     
+     tasks, setTasks,
+     selectedTasks, setSelectedTasks,
+     
+     contacts, setContacts,
+     selecteContacts, setSelectedContacts
+    }
 }
 
 export default useCustomerState;

@@ -1,17 +1,23 @@
 
 import {useContext} from 'react'
-import {Tab, Tabs, TabList, TabPanel, TabPanels, } from '@carbon/react'
+import {Tab, Tabs, TabList, TabPanel, TabPanels, IconButton} from '@carbon/react'
+import {AddAlt} from '@carbon/icons-react'
 import {CustomerContext} from '../context/customers.context'
 import TaskList from './TaskList'
 
 function CustomerList(props) {
 
-  let {custList, } = useContext(CustomerContext)
+  let {selectedCustomers } = useContext(CustomerContext)
 
-  const getSelectedName = (custList) => {
-    let m = custList.selected >= 0 ? custList.theList[custList.selected]['customer_name'] : 'None';
-        return(<span>{m}</span>)
-    }
+  const getSelectedName = () => {
+    let m 
+    if (selectedCustomers.length > 0)
+      m = selectedCustomers[0]['customer_name']
+    else
+      m = 'None';
+    return(<span>{m}</span>)
+  }
+
   return (
             <Tabs>
               <TabList aria-label="List of tabs">
@@ -25,15 +31,15 @@ function CustomerList(props) {
                 
               </TabList>
               <TabPanels>
-                <TabPanel> Details for: {getSelectedName(custList)} </TabPanel>
-                <TabPanel> Contacts for: {getSelectedName(custList)} </TabPanel>
-                <TabPanel>
+                <TabPanel> Details for: {getSelectedName()} </TabPanel>
+                <TabPanel> Contacts for: {getSelectedName()} </TabPanel>
+                <TabPanel>    
                     <TaskList />
                 </TabPanel>
-                <TabPanel> Situation Alert for: {getSelectedName(custList)} </TabPanel>
-                <TabPanel> Flashes for: {getSelectedName(custList)} </TabPanel>
-                <TabPanel> CSP Cases for: {getSelectedName(custList)} </TabPanel>
-                <TabPanel> Environment for:{getSelectedName(custList)}  </TabPanel>
+                <TabPanel> Situation Alert for: {getSelectedName()} </TabPanel>
+                <TabPanel> Flashes for: {getSelectedName()} </TabPanel>
+                <TabPanel> CSP Cases for: {getSelectedName()} </TabPanel>
+                <TabPanel> Environment for:{getSelectedName()}  </TabPanel>
                 
               </TabPanels>
           </Tabs>

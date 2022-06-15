@@ -4,9 +4,9 @@ import {CustomerContext} from '../context/customers.context';
 
 
 function CustomerList(){
-        let {custList, } = useContext(CustomerContext);
+        let {customers, } = useContext(CustomerContext);
 
-    return(<div>Customer List Length: { custList.theList.length } </div>)
+    return(<div>Customer List Length: { customers } </div>)
 }
 
 export default CustomerList
